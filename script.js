@@ -1,5 +1,16 @@
 function minDate(dates) {
   //write you code here
+	const dateObjects = dates.map(dateStr => new Date(dateStr));
+
+  
+  // Find the minimum date in the array of Date objects
+  const minDateObject = new Date(Math.min.apply(null, dateObjects));
+  // // Format the minimum date as "YYYY/MM/DD"
+  const year = minDateObject.getFullYear();
+  const month = String(minDateObject.getMonth()+1).padStart(2, '0'); // Month is zero-based
+  const day = String(minDateObject.getDate()).padStart(2, '0');
+
+  return `${year}/${month}/${day}`;
 }
 
 // Do not change the code
